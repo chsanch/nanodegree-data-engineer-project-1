@@ -63,26 +63,25 @@ For this project we will use the following database schema on PostgreSQL:
 #### Table Artists
 ```sql
 artists (
-    artist_id character varying PRIMARY KEY,
-    name character varying,
-    location character varying,
-    latitude numeric,
-    longitude numeric
+	artist_id varchar PRIMARY KEY,
+	name varchar NOT NULL,
+	location varchar,
+	latitude numeric,
+	longitude numeric
 );
-
 ```
 #### Table Songplays
 ```sql
 songplays (
-    songplay_id SERIAL PRIMARY KEY,
-    start_time timestamp without time zone,
-    user_id integer,
-    level character varying,
-    song_id character varying,
-    artist_id character varying,
-    session_id integer,
-    location character varying,
-    user_agent character varying
+	songplay_id SERIAL PRIMARY KEY,
+	start_time timestamp,
+	user_id int,
+	level varchar,
+	song_id varchar NOT NULL,
+	artist_id varchar NOT NULL,
+	session_id int,
+	location varchar,
+	user_agent varchar
 );
 
 
@@ -91,8 +90,8 @@ songplays (
 ```sql
 songs (
     song_id character varying PRIMARY KEY,
-    title character varying,
-    artist_id character varying,
+    title character varying NOT NULL,
+    artist_id character varying NOT NULL,
     year integer,
     duration numeric
 );
